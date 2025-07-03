@@ -1,5 +1,5 @@
 // Analyzer service tests
-const analyzer = require('../src/services/analyzer');
+import analyzer from '../src/services/analyzer.js';
 
 describe('Repository Analyzer Service', () => {
   const mockRepoData = {
@@ -64,7 +64,7 @@ describe('Repository Analyzer Service', () => {
   };
 
   test('should analyze repository data correctly', () => {
-    const result = analyzer.default.analyzeRepository(mockRepoData);
+    const result = analyzer.analyzeRepository(mockRepoData);
     
     expect(result.repo.name).toBe('test/repo');
     expect(result.repo.description).toBe('Test repository');
@@ -89,7 +89,7 @@ describe('Repository Analyzer Service', () => {
   });
 
   test('should generate meaningful insights', () => {
-    const result = analyzer.default.analyzeRepository(mockRepoData);
+    const result = analyzer.analyzeRepository(mockRepoData);
     
     expect(result.insights.technical.main).toContain('JavaScript');
     expect(result.insights.business.main).toBeTruthy();
@@ -101,7 +101,7 @@ describe('Repository Analyzer Service', () => {
   });
 
   test('should calculate scores correctly', () => {
-    const result = analyzer.default.analyzeRepository(mockRepoData);
+    const result = analyzer.analyzeRepository(mockRepoData);
     
     expect(result.stats.health.score).toBeGreaterThanOrEqual(0);
     expect(result.stats.health.score).toBeLessThanOrEqual(100);

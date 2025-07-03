@@ -7,11 +7,11 @@ export function parseRepositoryUrl(repoUrl) {
   // Handle different URL formats
   const patterns = [
     // GitHub URL: https://github.com/owner/repo
-    /^https?:\/\/github\.com\/([^\/]+)\/([^\/]+)(?:\.git)?(?:\/.*)?$/,
+    /^https?:\/\/github\.com\/([^/]+)\/([^/]+)(?:\.git)?(?:\/.*)?$/,
     // SSH URL: git@github.com:owner/repo.git
-    /^git@github\.com:([^\/]+)\/([^\/]+)(?:\.git)?$/,
+    /^git@github\.com:([^/]+)\/([^/]+)(?:\.git)?$/,
     // Simple owner/repo format
-    /^([^\/]+)\/([^\/]+)$/
+    /^([^/]+)\/([^/]+)$/
   ];
   
   for (const pattern of patterns) {

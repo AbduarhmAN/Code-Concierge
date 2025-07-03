@@ -224,7 +224,7 @@ const analyzer = {
    */
   generateGeneralInsights(repoInfo, languages, commits, contributors) {
     // Generate main general insight
-    let mainInsight = `${repoInfo.name} is a ${repoInfo.private ? 'private' : 'public'} repository`;
+    let mainInsight = `${repoInfo.full_name} is a ${repoInfo.private ? 'private' : 'public'} repository`;
     
     if (repoInfo.description) {
       mainInsight += ` that ${repoInfo.description.toLowerCase()}.`;
