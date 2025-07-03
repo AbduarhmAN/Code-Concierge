@@ -10,17 +10,17 @@ const analyzer = {
    * @returns {Object} - Analyzed repository data
    */
   analyzeRepository(data) {
-    const { repoInfo, languages, commits, contributors, issues, releases, codeFrequency } = data;
+    const { repoInfo, languages, commits, contributors, issues, releases } = data;
     
     // Process languages data
     const languageData = formatLanguages(languages);
     
     // Process commit data
     const commitsData = commits.map(c => ({
-      sha: c.sha.substring(0, 7),
-      message: c.commit.message.split('\n')[0],
-      author: c.commit.author?.name || c.author?.login || 'Unknown',
-      date: c.commit.author?.date || new Date().toISOString()
+      sha: (c.sha || 'unknown').substring(0, 7),
+      message: (c.commit?.message || 'No message').split('\n')[0],
+      author: c.commit?.author?.name || c.author?.login || 'Unknown',
+      date: c.commit?.author?.date || new Date().toISOString()
     }));
     
     // Calculate commit frequency

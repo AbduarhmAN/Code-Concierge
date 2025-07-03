@@ -33,7 +33,7 @@ export function calculateCommitFrequency(commits) {
   const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
   
   const recentCommits = commits.filter(commit => {
-    const commitDate = new Date(commit.commit.author?.date);
+    const commitDate = new Date(commit.commit?.author?.date || commit.date || new Date());
     return commitDate > oneWeekAgo;
   });
   
