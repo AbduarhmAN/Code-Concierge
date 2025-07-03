@@ -110,7 +110,7 @@ class RepoAnalyzer {
 
   static generateRecommendations(data) {
     const recommendations = [];
-    const { repo, stats, languages, commits, issues, releases } = data;
+    const { repo, stats, languages, issues, releases } = data;
     
     // Activity recommendations
     if (stats.activity.score < 50) {

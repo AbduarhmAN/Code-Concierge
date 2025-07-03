@@ -71,7 +71,7 @@ router.get('/analyze/:owner/:repo', async (req, res) => {
  */
 router.get('/dependencies/:owner/:repo', async (req, res) => {
   const { owner, repo } = req.params;
-  const { token, branch = 'main' } = req.query;
+  const { branch = 'main' } = req.query;
   
   try {
     // Try to fetch package.json from the repository

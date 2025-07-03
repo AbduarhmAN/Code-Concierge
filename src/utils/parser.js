@@ -56,7 +56,7 @@ export function validateGitHubToken(token) {
  */
 export function analyzeCommitMessages(commits) {
   if (!commits || commits.length === 0) {
-    return { patterns: [], types: {} };
+    return { patterns: [], types: {}, totalCommits: 0 };
   }
   
   const types = {};
